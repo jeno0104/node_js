@@ -10,8 +10,9 @@ app.get("/", (req, res) => {
   res.send("Hello, Node!");
 });
 
-app.use("/users", require("./routes/contactRoutes")); // 루트 경로를 요청했을 때, 사용할 미들웨어 모듈 위치 작성
-
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use("/contacts", require("./routes/contactRoutes")); // 루트 경로를 요청했을 때, 사용할 미들웨어 모듈 위치 작성
 app.listen(3000, () => {
   console.log("서버 실행중");
 });

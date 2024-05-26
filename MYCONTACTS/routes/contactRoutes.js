@@ -8,6 +8,11 @@ router
     res.send("Contacts Page");
   })
   .post((req, res) => {
+    // console.log(req.body); // req 바디의 요청을 파싱해줘야 json 값을 가져가서 사용할 수 있다.
+    const { name, email, phone } = req.body;
+    if (!name || !email || !phone) {
+      return res.send("필수 값이 입력되지 않았습니다.");
+    }
     res.send("Create Contacts");
   });
 router
