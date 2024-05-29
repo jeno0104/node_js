@@ -4,10 +4,12 @@
 // delete: 서버에 있는 자료를 삭제할 때
 
 const express = require("express");
+const dbConnect = require("./config/dbconnect");
 const app = express(); // express 함수를 실행시켜 app 이라는 서버를 만듬
 
+dbConnect();
 app.get("/", (req, res) => {
-  res.send("Hello, Node!");
+  res.send("Contacts");
 });
 
 app.use(express.json());
